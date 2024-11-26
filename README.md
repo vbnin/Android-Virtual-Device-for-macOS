@@ -13,14 +13,15 @@ This is a personal project tested in the following environment:
 ## Instructions
 Instructions are given at the beginning of each script, here are some general instructions for the whole setup
 
-1. Ensure Java JDK 21 is installed with the command ```java -version```. JDK 21 for Mac can be installed from there: https://adoptium.net/en-GB/temurin/releases/?os=mac&package=jdk&version=21
+1. Ensure Java JDK 21 or later is installed with the command ```java -version```. JDK 21 for Mac can be installed from there: https://adoptium.net/en-GB/temurin/releases/?os=mac&package=jdk&version=21
 2. Edit variables in all three scripts according to your context and your needs (install path, device name, etc)
-3. Run the script **android_device_manager_install.sh** first to install Android CLI tools on your Mac.
-4. Run the **create_android_virtual_device.sh** as many times as you want to create new Android virtual devices. Don't forget to set a different device name in script variables each time you want to create a new one.
-5. Run the **script run_android_virtual_device.sh** every time you want to run an Android device
+3. Run the _bash_ script **android_device_manager_install.sh** first to install Android CLI tools on your Mac.
+4. Run the _zsh_ script **create_android_virtual_device.sh** as many times as you want to create new Android virtual devices. Don't forget to set a different device name in script variables each time you want to create a new one.
+5. Run the _zsh_ script **script run_android_virtual_device.sh** every time you want to run an Android device
 
 ## Tips
 * Execute these scripts as root or using ```sudo```
+* Pay attention to script types, the install script is BASH and the other ones are ZSH
 * Environment and PATH variables are important to make this setup work, you can check everything is defined correctly by running ```cat /etc/zshrc```. If needed, you can refresh your environment variables by running ```source /etc/zshrc```.
 * You can list all available Android system images by running the command ```sdkmanager —list```
 * You can kill a running device by running the command ```adb emu kill &```
