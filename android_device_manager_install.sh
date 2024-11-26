@@ -69,14 +69,18 @@ mkdir -p "${SDK_PATH}"
 chmod 755 "${SDK_PATH}"
 
 # Check if JDK is installed
-echo "Checking if Java JDK 21 is installed on this Mac"
-JAVA_CHECK=$(java -version 2>&1)
+echo "Checking if Java JDK 21 or later is installed on this Mac"
 
-if echo "$JAVA_CHECK" | grep -q "21."; then
-  echo "Java JDK 21 is installed. Proceeding..."
+# Extract the major version number
+JAVA_VERSION=$(java -version 2>&1 | grep -oE '"[0-9]+(\.[0-9]+)*"' | tr -d '"')
+JAVA_MAJOR_VERSION=$(echo "$JAVA_VERSION" | cut -d'.' -f1)
+
+# Check if the version is >= 21
+if [ "$JAVA_MAJOR_VERSION" -ge 21 ]; then
+  echo "Java JDK 21 or later is installed. Proceeding..."
   # Proceed with the script
 else
-  echo "Java JDK 21 is not installed. Cannot proceed..."
+  echo "Java JDK is not installed or below the required version. Cannot proceed..."
   # Install JDK21 from a Jamf Pro policy or by any other mean
   # /usr/local/bin/jamf policy -event @install-jdk21    # Example Jamf Pro policy to install JDK21
   exit 1
