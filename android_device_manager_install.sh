@@ -128,7 +128,7 @@ done
 # Reload the zshrc file to apply environment variable changes
 echo "Reloading $ZSHRC_FILE for root and logged-in user..."
 cd /tmp/
-source "$ZSHRC_FILE"
+source "$ZSHRC_FILE" 2>/dev/null
 sudo -H -iu ${CONSOLE_USER} source "$ZSHRC_FILE"
 
 # Download and install Android CLI Tools
