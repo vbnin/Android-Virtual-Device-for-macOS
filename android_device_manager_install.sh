@@ -92,9 +92,9 @@ export ANDROID_AVD_HOME=${WORKING_DIR}/avd
 "
 
 NEW_PATHS=(
-  "$SDK_PATH/emulator"
-  "$SDK_PATH/platform-tools"
-  "$SDK_PATH/bin"
+  "${SDK_ROOT}/emulator"
+  "${SDK_ROOT}/platform-tools"
+  "${SDK_PATH}/bin"
 )
 
 # Check if the environment variables are already in the file
