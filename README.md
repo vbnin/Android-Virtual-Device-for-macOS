@@ -4,6 +4,10 @@ __Generate and run fully functional Android virtual devices on macOS in a few cl
 Are you looking to easily create and run Android virtual devices on macOS? You're in the right place!
 I created these 3 scripts as I needed a way to easily experiment with Android devices in the Jamf Security Cloud portal.
 
+
+<img width="1440" alt="Screenshot 2024-11-26 at 16 52 55 (2)" src="https://github.com/user-attachments/assets/315d8c99-d6ca-40fa-814d-94bd4e4517e1">
+
+## Requirements
 These scripts have been designed to be deployed using Jamf Pro policies, but they can also be used as stand-alone scripts.
 This is a personal project tested in the following environment:
 * Mac Mini M1 with macOS Sequoia 15.1
