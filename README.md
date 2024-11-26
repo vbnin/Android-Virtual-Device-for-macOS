@@ -1,5 +1,5 @@
 # Android-Virtual-Device-for-macOS
-Generate and run Android virtual devices on macOS with these scripts!
+__Generate and run fully functional Android virtual devices on macOS in a few clicks!__
 
 Are you looking to easily create and run Android virtual devices on macOS? You're in the right place!
 I created these 3 scripts as I needed a way to easily experiment with Android devices in the Jamf Security Cloud portal.
