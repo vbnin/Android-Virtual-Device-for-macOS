@@ -50,7 +50,7 @@ fi
 echo "Preparing to create a new Android virtual device..."
 echo "Device settings: Package=${ANDROID_PACKAGE}, Name=${DEVICE_NAME}"
 
-echo no | ${SDK_BIN}/avdmanager create avd --name ${DEVICE_NAME} --package "$ANDROID_PACKAGE"
+echo no | ${SDK_BIN}/avdmanager create avd --name "${DEVICE_NAME}" --package "$ANDROID_PACKAGE"
 
 echo "Done!"
 
