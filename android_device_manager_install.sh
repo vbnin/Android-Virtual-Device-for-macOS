@@ -31,17 +31,17 @@
 
 echo "Starting script to install Android Device Manager CLI tools"
 
-# Fixed variables
-ZSHRC_FILE="/etc/zshrc"
-CONSOLE_USER="$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ && ! /loginwindow/ { print $3 }' )"
-DEFAULT_WORKING_DIR="/private/var/root/.android"
-
 # Editable variables (edit only if needed)
 DOWNLOAD_URL="https://dl.google.com/android/repository/commandlinetools-mac-11076708_latest.zip"    # Define the download URL of Android CLI tools
 SDK_ROOT="/Library/Android/SDK"    # Define the root install path of Android CLI tools
 
 # Jamf Pro variables (optional, you can leave the variable blank)
 CUSTOM_WORKING_DIR="$4"   # Define a custom directory to store Android virtual devices for easy access
+
+# Fixed variables
+ZSHRC_FILE="/etc/zshrc"
+CONSOLE_USER="$( echo "show State:/Users/ConsoleUser" | scutil | awk '/Name :/ && ! /loginwindow/ { print $3 }' )"
+DEFAULT_WORKING_DIR="/private/var/root/.android"
 
 # Create symbolic link to custom device image location if required
 if [[ -z "$CUSTOM_WORKING_DIR" ]]; then
