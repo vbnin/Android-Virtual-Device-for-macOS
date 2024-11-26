@@ -49,11 +49,11 @@ source /etc/zshrc 2>/dev/null
 echo "Starting Android device ==> ${DEVICE_NAME}"
 ${SDK_ROOT}/emulator/emulator -avd "${DEVICE_NAME}" &
 
+echo "Script complete! Wait a few seconds for the device to boot..."
+
 # Uncomment the following lines to automatically stop Android emulator
 # sleep 60
 # echo "Stopping Android device ==> ${DEVICE_NAME}"
 # ${SDK_ROOT}/platform-tools/adb emu kill &
-
-echo "Script complete"
 
 exit 0
