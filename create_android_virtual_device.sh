@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 ####################################################################################################
 #
@@ -45,6 +45,11 @@ if [[ ! -e "${SDK_BIN}/avdmanager" ]]; then
 	echo "Android CLI tools could not be found at ${SDK_BIN}/, cannot proceed..."
     exit 1
 fi
+
+# Download the defined Android system image
+echo "Installing Android system image using value: $ANDROID_PACKAGE"
+echo y | $SDK_BIN/sdkmanager --install "$ANDROID_PACKAGE"
+
 
 # Create the VM
 echo "Preparing to create a new Android virtual device..."
