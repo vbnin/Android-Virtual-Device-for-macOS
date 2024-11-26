@@ -35,8 +35,7 @@
 
 # Editable variables
 SDK_ROOT="/Library/Android/SDK"    # Android CLI tools install path
-ANDROID_PACKAGE="system-images;android-35;google_apis_playstore;arm64-v8a"    # Android system image used to create the virtual device
-DEVICE_NAME="My Android Device"    # Name of the Android virtual device to run
+DEVICE_NAME="My_Android_Device"    # Name of your new Android virtual device. No spaces allowed. 
 
 # Check if Android CLI tools are available
 if [[ ! -e "$SDK_ROOT/emulator/emulator" ]]; then
