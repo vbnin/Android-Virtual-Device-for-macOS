@@ -33,6 +33,10 @@
 SDK_ROOT="/Library/Android/SDK"    # Android CLI tools install path
 ANDROID_PACKAGE="system-images;android-35;google_apis_playstore;arm64-v8a"    # Android system image used to create the virtual device
 DEVICE_NAME="My_Android_Device"    # Name of your new Android virtual device. No spaces allowed. 
+DEFAULT_WORKING_DIR="/private/var/root/.android"
+
+# Jamf Pro variables (optional, you can leave the variable blank)
+CUSTOM_WORKING_DIR="$4"   # Define a custom directory to store Android virtual devices for easy access. AVOID spaces in this path.
 
 # Fixed variables
 SDK_BIN="${SDK_ROOT}/cmdline-tools/latest/bin"
@@ -46,6 +50,15 @@ if [[ ! -e "${SDK_BIN}/avdmanager" ]]; then
     exit 1
 fi
 
+# Set Android VM storage directory
+if [[ -z "$CUSTOM_WORKING_DIR" ]]; then
+  # Keep default directory to store devices
+  WORKING_DIR="$DEFAULT_WORKING_DIR"
+else
+  # Use custom directory to store devices
+  WORKING_DIR="$CUSTOM_WORKING_DIR"
+fi
+
 # Download the defined Android system image
 echo "Installing Android system image using value: $ANDROID_PACKAGE"
 echo y | $SDK_BIN/sdkmanager --install "$ANDROID_PACKAGE"
@@ -56,6 +69,23 @@ echo "Preparing to create a new Android virtual device..."
 echo "Device settings: Package=${ANDROID_PACKAGE}, Name=${DEVICE_NAME}"
 
 echo no | ${SDK_BIN}/avdmanager create avd --name "${DEVICE_NAME}" --package "$ANDROID_PACKAGE"
+
+# Path to the AVD config file
+AVD_PATH="${WORKING_DIR}/avd/${DEVICE_NAME}.avd/config.ini"
+
+# Enable keyboard input in the config.ini
+if [ -f "$AVD_PATH" ]; then
+    echo "Enabling physical keyboard support..."
+    # Append or update the keyboard property
+    if grep -q "hw.keyboard" "$AVD_PATH"; then
+        sed -i '' 's/hw.keyboard=.*/hw.keyboard=yes/' "$AVD_PATH"
+    else
+        echo "hw.keyboard=yes" >> "$AVD_PATH"
+    fi
+    echo "Physical keyboard enabled."
+else
+    echo "Error: AVD config.ini not found at $AVD_PATH"
+fi
 
 echo "Done!"
 
