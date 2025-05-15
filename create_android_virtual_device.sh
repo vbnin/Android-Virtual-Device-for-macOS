@@ -3,7 +3,7 @@
 ####################################################################################################
 #
 ### Written by: Vincent Bonnin - Technical Enablement Manager at Jamf
-### Last updated on 25 Nov 2024
+### Last updated on 15 May 2025
 #
 ### This script will create an Android virtual device using Android CLI tools
 ### This script has been designed to be run from a Jamf Pro policy but it can also be run directly on a computer (root required)
