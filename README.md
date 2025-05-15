@@ -32,7 +32,7 @@ Example: ```sudo zsh run_android_virtual_device.sh```
 * Execute these scripts as root or using ```sudo```
 * Pay attention to script types, the install script is BASH and the other ones are ZSH
 * Environment and PATH variables are important to make this setup work, you can check everything is defined correctly by running ```cat /etc/zshrc```. If needed, you can refresh your environment variables by running ```source /etc/zshrc```.
-* You can list all available Android system images by running the command ```sdkmanager —list```
+* You can list all available Android system images by running the command ```sdkmanager --list```
 * You can kill a running device by running the command ```adb emu kill &```
 * You can list available devices by running the command ```emulator -list-avds```
 
