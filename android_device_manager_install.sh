@@ -36,7 +36,7 @@ DOWNLOAD_URL="https://dl.google.com/android/repository/commandlinetools-mac-1107
 SDK_ROOT="/Library/Android/SDK"    # Define the root install path of Android CLI tools
 
 # Jamf Pro variables (optional, you can leave the variable blank)
-CUSTOM_WORKING_DIR="$4"   # Define a custom directory to store Android virtual devices for easy access
+CUSTOM_WORKING_DIR="$4"   # Define a custom directory to store Android virtual devices for easy access. AVOID spaces in path if possible!
 
 # Fixed variables
 ZSHRC_FILE="/etc/zshrc"
